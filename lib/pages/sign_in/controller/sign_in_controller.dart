@@ -1,13 +1,15 @@
 
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ulearning_app/common/entities/entities.dart';
 import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/utils/global_loader/global_loader.dart';
 
+import '../../../common/models/user.dart';
 import '../../../common/utils/popus_messages.dart';
 import '../../../global.dart';
 import '../../../main.dart';
@@ -96,7 +98,9 @@ class SignInController {
     // have local storage
     try {
       Global.storageService
-          .setString(AppConstants.STORAGE_USER_PROFILE_KEY, '123');
+          .setString(AppConstants.STORAGE_USER_PROFILE_KEY, jsonEncode({
+        'name': 'Asif', 'email': 'asifflux@gmail.com', 'age': 23,
+      }));
       Global.storageService
           .setString(AppConstants.STORAGE_USER_TOKEN_KEY, '12345');
     } catch (e) {

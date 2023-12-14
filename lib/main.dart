@@ -1,13 +1,29 @@
+import 'dart:convert';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/utils/constants.dart';
 import 'common/routes/routes.dart';
 import 'common/utils/app_styles.dart';
 import 'global.dart';
 
 Future<void> main() async {
+  // we cannot store map in sharedPreference you need to convert map to string using encoding
+  // understanding json encode method
+  // var item = {'name': 'Asif', 'age': 23};
+  // var newItem = jsonEncode(item);
+  // print(newItem);
+
   await Global.init();
+  // var item = Global.storageService.getString(AppConstants.STORAGE_USER_PROFILE_KEY) ?? '';
+  // print(item);
+
+  // jsonDecode convert string to an Object
+  // var newItem = jsonDecode(item);
+  // print(newItem['name']);
+
   runApp(const ProviderScope(child: MyApp()));
 }
 
