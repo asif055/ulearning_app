@@ -35,51 +35,67 @@ Widget appTextField({
                 child: appImage(imagePath: iconName),
               ),
               // our TextField
-              Container(
-                width: 300.w,
-                height: 50.h,
-                child: TextField(
+              appTextFieldOnly(
                   controller: controller,
-                  onChanged: (value) => func!(value),
-                  keyboardType: TextInputType.multiline,
-                  decoration: InputDecoration(
-                    hintText: hintText,
-                    hintStyle: const TextStyle(
-                      color: AppColors.primaryThreeElementText,
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                    ),
-                    border: const OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                      ),
-                    ),
-                    // default border without any border
-                    enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                      ),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                      ),
-                    ),
-                    disabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                      ),
-                    ),
-                  ),
-                  maxLines: 1,
-                  autocorrect: false,
-                  obscureText: obsecureText,
-                ),
-              )
+                  hintText: hintText,
+                  func: func,
+                  obscureText: obsecureText)
             ],
           ),
         )
       ],
+    ),
+  );
+}
+
+Widget appTextFieldOnly({
+  TextEditingController? controller,
+  String hintText = 'Type in your info',
+  double width = 280,
+  double height = 50,
+  void Function(String value)? func,
+  bool obscureText = false,
+}) {
+  return SizedBox(
+    width: width.w,
+    height: height.h,
+    child: TextField(
+      controller: controller,
+      onChanged: (value) => func!(value),
+      keyboardType: TextInputType.multiline,
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.only(top: 5.h, left: 10.w),
+        hintText: hintText,
+        hintStyle: const TextStyle(
+          color: AppColors.primaryThreeElementText,
+          fontSize: 14,
+          fontWeight: FontWeight.normal,
+        ),
+        border: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.transparent,
+          ),
+        ),
+        // default border without any border
+        enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.transparent,
+          ),
+        ),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.transparent,
+          ),
+        ),
+        disabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.transparent,
+          ),
+        ),
+      ),
+      maxLines: 1,
+      autocorrect: false,
+      obscureText: obscureText,
     ),
   );
 }
