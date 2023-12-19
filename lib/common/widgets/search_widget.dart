@@ -9,9 +9,10 @@ import '../utils/image_res.dart';
 
 Widget searchBar() {
   return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       Container(
-        width: 320.w,
+        width: 315.w,
         height: 45.h,
         decoration: appBoxShadow(
           color: AppColors.primaryBackground,
@@ -32,6 +33,17 @@ Widget searchBar() {
                   width: 240, height: 40, hintText: 'search your course'),
             )
           ],
+        ),
+      ),
+      // search button
+      GestureDetector(
+        child: Container(
+          width: 40.w,
+          height: 40.h,
+          padding: EdgeInsets.all(5.w),
+          decoration: appBoxShadow(
+              boxBorder: Border.all(color: AppColors.primaryElement)),
+          child: appImage(imagePath: ImageRes.searchButton),
         ),
       )
     ],

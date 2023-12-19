@@ -29,6 +29,7 @@ BoxDecoration appBoxShadowWithRadius({
   double radius = 15,
   double sR = 1,
   double bR = 2,
+  BoxBorder? border,
 
 }) {
   return BoxDecoration(
@@ -37,6 +38,7 @@ BoxDecoration appBoxShadowWithRadius({
         topLeft: Radius.circular(20.h),
         topRight: Radius.circular(20.h),
       ),
+      border: border,
       boxShadow: [
         BoxShadow(
             color: Colors.grey.withOpacity(0.1),

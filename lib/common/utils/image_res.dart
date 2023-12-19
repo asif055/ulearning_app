@@ -21,4 +21,5 @@ class ImageRes {
   static const String message = '$imageBase/message-circle.png';
   static const String profile = '$imageBase/person2.png';
   static const String searchIcon = '$imageBase/search.png';
+  static const String searchButton = '$imageBase/options.png';
 }
